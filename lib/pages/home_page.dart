@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_catelog/widgets/drawer.dart';
 
@@ -10,8 +12,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return
       Scaffold(
+
         appBar: AppBar(
-          title: Text("Cateloge App"),
+          title: Text("Cateloge App",),
         ),
         body: Center(
           child: Container(
@@ -20,5 +23,6 @@ class HomePage extends StatelessWidget {
         ),
         drawer: MyDrawer(),
       );
+      
   }
 }
