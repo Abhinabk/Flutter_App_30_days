@@ -18,6 +18,7 @@ class MyDrawer extends StatelessWidget {
                 accountEmail: Text("abhi@gmail.com"),
                 // currentAccountPicture: Image.network(imageUrl), for rectangular
                 currentAccountPicture: CircleAvatar(
+                  
                   backgroundImage:NetworkImage(imageUrl)),
                 ),
               ),

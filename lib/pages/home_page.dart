@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_catelog/models/catelog.dart';
 import 'package:flutter_catelog/widgets/drawer.dart';
+import 'package:flutter_catelog/widgets/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   final int days = 30;
@@ -15,10 +16,15 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Cateloge App",),
         ),
-        body: Center(
-          child: Container(
-            child: Text("Welcome to $days days by $fullName"),
-            ),
+        // using builder as items render only when scrolled
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView.builder(
+            itemCount: CatelogModel.items.length,
+            itemBuilder: (context,index){
+              return ItemWidget(item: CatelogModel.items[index],);
+            },
+          ),
         ),
         drawer: MyDrawer(),
       );
