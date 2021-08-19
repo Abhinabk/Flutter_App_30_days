@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -29,7 +30,10 @@ class MyTheme{
         appBarTheme: AppBarTheme(
           color: Colors.white,
           iconTheme: IconThemeData(color: Colors.white),
-          textTheme: Theme.of(context).textTheme,
+
+          textTheme: Theme.of(context).textTheme.copyWith(
+            headline6: context.textTheme.headline6!.copyWith(color: Colors.white)
+          ),
         )
         );
         
