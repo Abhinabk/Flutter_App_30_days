@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
   // bulid return a Widget
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme:MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/login",
+      initialRoute: MyRoutes.loginRoute,
       routes:{
         "/":(contex) => LoginPage(),
         MyRoutes.homeRoute:(contex) => HomePage(),

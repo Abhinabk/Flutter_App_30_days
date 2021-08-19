@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_catelog/models/catelog.dart';
 import 'package:flutter_catelog/widgets/themes.dart';
@@ -15,10 +16,10 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor:context.canvasColor,
       bottomNavigationBar: 
            Container(
-             color: Colors.white,
+             color: context.cardColor,
              child: ButtonBar(
                     alignment: MainAxisAlignment.spaceBetween,
                     buttonPadding: Vx.mOnly(right: 16),
@@ -27,7 +28,7 @@ class HomeDetailPage extends StatelessWidget {
                       ElevatedButton(
                         onPressed: (){}, child: "Add to cart".text.make(),
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
+                          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                       
                           shape: MaterialStateProperty.all(StadiumBorder())
                           ),
@@ -46,11 +47,11 @@ class HomeDetailPage extends StatelessWidget {
             tag: Key(catelog.id.toString()),
             child: Image.network(catelog.image)).h32(context),
           Expanded(child: VxArc(
-            height: 10.0,
+            height: 30.0,
             arcType: VxArcType.CONVEY,
             edge: VxEdge.TOP,
             child: Container(
-                color: Colors.white,
+                color: context.cardColor,
                 width: context.screenWidth,
                 child: Column(
                   children:[catelog.name.text.xl4.color(MyTheme.darkBluishColor).bold.make(),
