@@ -60,14 +60,13 @@ class CatelogItem extends StatelessWidget {
                   children: [
                     "\$${catelog.price}".text.bold.xl.make(),
                     ElevatedButton(
-                      onPressed: (){}, child: "Buy".text.make(),
+                      onPressed: (){}, child: "Add to cart ".text.make(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
                     
                         shape: MaterialStateProperty.all(StadiumBorder())
                         ),
-
-                      )
+                      ),
                   ],
                 )
               ],
