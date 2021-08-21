@@ -33,7 +33,13 @@ class _CartTotal extends StatelessWidget {
       child:Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}".text.xl5.color(context.theme.accentColor).make(),
+          VxConsumer(
+            builder: (context,_,status){
+                      return "\$${_cart.totalPrice}".
+                      text.xl5.color(context.theme.accentColor).
+                      make();
+          },notifications: {}, mutations:{RemoveMutation},
+          ),
           30.widthBox,
           ElevatedButton(onPressed: (){
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: "Buying not supported yet".text.make()));
@@ -54,6 +60,7 @@ class _CartList extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
     return _cart.items.isEmpty?"Empty cart".text.xl3.makeCentered(): ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context,index)=>ListTile(
@@ -61,7 +68,7 @@ class _CartList extends StatelessWidget{
         trailing: IconButton(
           icon:Icon(Icons.remove_circle_outline), 
            onPressed: (){
-            _cart.remove(_cart.items[index]);
+            RemoveMutation(_cart.items[index]);
           }, 
           ),
           title:_cart.items[index].name.text.make(),
