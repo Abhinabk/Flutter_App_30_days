@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_catelog/core/store.dart';
 import 'package:flutter_catelog/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 class CartPage extends StatelessWidget {
@@ -26,7 +27,7 @@ class CartPage extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+     final CartModel  _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height:200,
       child:Row(
@@ -48,9 +49,11 @@ class _CartTotal extends StatelessWidget {
 }
 
 class _CartList extends StatelessWidget{
+
+  final CartModel  _cart = (VxState.store as MyStore).cart;
+
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
     return _cart.items.isEmpty?"Empty cart".text.xl3.makeCentered(): ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context,index)=>ListTile(
